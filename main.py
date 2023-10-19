@@ -9,10 +9,24 @@
 import requests
 import psycopg2
 
+# Get names list
 response = requests.get("https://pokeapi.co/api/v2/pokemon")
 data = response.json() # dict
 results = data["results"] # list
 names = [result["name"] for result in results]
+
+# Load data to database
+
+db_params = {
+    "host": "localhost",
+    "database": "wrapup",
+    "user": "icarus-dev",
+    "password": "pass-no-hackeable"
+}
+
+connection = psycopg2.connect(**db_params)
+cursor = connection.cursor()
+
 
 print(names)
 
