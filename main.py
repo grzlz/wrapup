@@ -9,9 +9,13 @@
 import requests
 
 
-response = requests.get("https://pokeapi.co/api/v2/pokemon)
+response = requests.get("https://pokeapi.co/api/v2/pokemon")
 
-data = response.json()
+data = response.json() # dict
+
+results = data["results"] # list
 
 
-print(data)
+
+print(results[0])
+
