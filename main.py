@@ -4,3 +4,11 @@
 #    -Usuario: icarus-dev;
 #    -Constraseña: pass-no-hackeable.
 
+
+# Make request
+import requests
+
+
+response = requests.get("https://jsonplaceholder.typicode.com/albums")
+
+print(response)
