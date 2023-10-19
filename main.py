@@ -9,6 +9,11 @@
 import requests
 
 
-response = requests.get("https://jsonplaceholder.typicode.com/albums")
+response = requests.get("https://pokeapi.co/api/v2/pokemon)
 
-print(response)
+data = response.json()
+
+test = data[0:3]
+
+
+print(test)
