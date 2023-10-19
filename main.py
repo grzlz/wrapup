@@ -7,15 +7,11 @@
 
 # Make request
 import requests
-
+import psycopg2
 
 response = requests.get("https://pokeapi.co/api/v2/pokemon")
-
 data = response.json() # dict
-
 results = data["results"] # list
-
-
 names = [result["name"] for result in results]
 
 print(names)
