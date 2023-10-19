@@ -16,6 +16,7 @@ data = response.json() # dict
 results = data["results"] # list
 
 
+names = [result["name"] for result in results]
 
-print(results[0])
+print(names)
 
