@@ -13,7 +13,5 @@ response = requests.get("https://pokeapi.co/api/v2/pokemon)
 
 data = response.json()
 
-test = data[0:3]
 
-
-print(test)
+print(data)
