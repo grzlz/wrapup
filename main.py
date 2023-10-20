@@ -13,7 +13,7 @@ import psycopg2
 response = requests.get("https://pokeapi.co/api/v2/pokemon")
 data = response.json() # dict
 results = data["results"] # list
-names = [result["name"] for result in results]
+names = [result["name"] for result in results] # list of pokemon names
 
 # Load data to database
 
@@ -27,6 +27,14 @@ db_params = {
 connection = psycopg2.connect(**db_params)
 cursor = connection.cursor()
 
+for name in names:
+ cursor.execute(f"INSERT INTO pokemon_names (name) VALUES ('{name}');")
+ connection.commit()
 
-print(names)
+cursor.close()
+connection.close()
+print("Pokemon successfully loaded!")
+
+
+
 
